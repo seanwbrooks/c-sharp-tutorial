@@ -132,7 +132,61 @@ namespace c_sharp_tutorial
                 Console.WriteLine(c);
             }
 
+            // Given two strings, write a method to decide if one is a permutation of the other.
+            string Sort(string s) {
+                char[] sortedS = s.ToCharArray();
+                Array.Sort(sortedS);
+                return new String(sortedS);
+            }
 
+            bool isPermutation(string s, string t) {
+                if(s.Length != t.Length) {
+                    return false;
+                }
+                return Sort(s).Equals(Sort(t));
+            }
+
+            Console.WriteLine(isPermutation("sean", "nsea"));
+
+            // URLify: Write a method to replace all spaces in a string with '%20'.
+            string URLify(string s) {
+                string[] strings = Arrayify(s);
+                string convertedString = "";
+                for (int y = 0; y < strings.Length; y++) {
+                    if (String.IsNullOrWhiteSpace(strings[y])) {
+                        strings[y] = "%20";
+                    }
+                    convertedString += strings[y];
+                }
+                return convertedString;
+            }
+
+            string[] Arrayify(String S) {
+                string[] strings = new string[S.Length];
+                for (int z = 0; z < S.Length; z++) {
+                    strings[z] = S[z].ToString();
+                }
+                return strings;
+            }
+
+            Console.WriteLine(URLify(" S E A   N   "));
+
+            // Palindrome Permutation: Given a string, write a function to check if it is a
+            // permutation of a palindrome.
+
+            // This solves palindrome (not permutations of palindrome)
+            string isPalindrome(String s) {
+                char[] reverseString = new char[s.Length];
+                for (int a = 0; a < s.Length; a++) {
+                    reverseString[a] = s[s.Length - (a + 1)];
+                }
+                return (new string (reverseString) == s).ToString() 
+                                                                 + " (permutations: '" + new string(reverseString) + "', '" 
+                                                                     + s + "', etc.)";
+            }
+
+            Console.WriteLine(isPalindrome("Hello World"));
+            Console.WriteLine(isPalindrome("racecar"));
         }
     }
 }
