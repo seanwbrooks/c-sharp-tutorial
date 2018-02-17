@@ -272,6 +272,23 @@ namespace c_sharp_tutorial
 
             strList.Sort();
 
+            // Exception Handling
+            try {
+                Console.Write("Divide 10 by ");
+                int input = int.Parse(Console.ReadLine());
+                Console.WriteLine("10 / {0} = {1}", input, (10/input));
+            } 
+            catch(DivideByZeroException ex) {
+                Console.WriteLine("Can't divide by zero");
+                Console.WriteLine(ex.GetType().Name);
+                Console.WriteLine(ex.Message);
+                throw new InvalidOperationException("Operation Failed", ex);
+            }
+            catch(Exception ex) {
+                Console.WriteLine(ex.GetType().Name);
+                Console.WriteLine(ex.Message);
+            }
+
         }
     }
 }
