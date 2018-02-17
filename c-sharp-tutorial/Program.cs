@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace c_sharp_tutorial
+namespace csharptutorial
 {
     class Program
     {
@@ -55,18 +55,24 @@ namespace c_sharp_tutorial
             // Logical Operators: &&, ||, ^, !
 
             int age = 17;
-            if((age >= 5) && (age <= 7)) {
+            if ((age >= 5) && (age <= 7))
+            {
                 Console.WriteLine("Go to elementary school");
-            } else if ((age > 7) && (age <= 13)) {
+            }
+            else if ((age > 7) && (age <= 13))
+            {
                 Console.WriteLine("Go to middle school");
-            } else {
+            }
+            else
+            {
                 Console.WriteLine("You've graduated middle school. Congratulations!");
             }
 
             // Ternary operation
             bool canDrive = age >= 16 ? true : false;
 
-            switch(age) {
+            switch (age)
+            {
                 case 0:
                     Console.WriteLine("Infant");
                     break;
@@ -83,15 +89,19 @@ namespace c_sharp_tutorial
             // While
             int i = 0;
 
-            while(i < 10) {
-                if(i == 7) {
+            while (i < 10)
+            {
+                if (i == 7)
+                {
                     i++;
                     continue;
                 }
-                if(i == 9) {
+                if (i == 9)
+                {
                     break;
                 }
-                if((i % 2) > 0) {
+                if ((i % 2) > 0)
+                {
                     Console.WriteLine(i);
                 }
                 i++;
@@ -109,18 +119,22 @@ namespace c_sharp_tutorial
 
                 int x = 0;
                 Int32.TryParse(guess, out x);
-                if(x < num) {
+                if (x < num)
+                {
                     Console.WriteLine("\nToo Low");
                 }
-                if(x > num) {
+                if (x > num)
+                {
                     Console.WriteLine("\nToo High");
                 }
 
             } while (!guess.Equals(num.ToString()));
 
             // For
-            for (int f = 0; f < 10; f++) {
-                if(f % 2 > 0) {
+            for (int f = 0; f < 10; f++)
+            {
+                if (f % 2 > 0)
+                {
                     Console.WriteLine(f);
                 }
             }
@@ -128,19 +142,23 @@ namespace c_sharp_tutorial
             // ForEach
             string randStr = "Here is a random sentence.";
 
-            foreach(char c in randStr) {
+            foreach (char c in randStr)
+            {
                 Console.WriteLine(c);
             }
 
             // Given two strings, write a method to decide if one is a permutation of the other.
-            string Sort(string s) {
+            string Sort(string s)
+            {
                 char[] sortedS = s.ToCharArray();
                 Array.Sort(sortedS);
                 return new String(sortedS);
             }
 
-            bool isPermutation(string s, string t) {
-                if(s.Length != t.Length) {
+            bool isPermutation(string s, string t)
+            {
+                if (s.Length != t.Length)
+                {
                     return false;
                 }
                 return Sort(s).Equals(Sort(t));
@@ -149,11 +167,14 @@ namespace c_sharp_tutorial
             Console.WriteLine(isPermutation("sean", "nsea"));
 
             // URLify: Write a method to replace all spaces in a string with '%20'.
-            string URLify(string s) {
+            string URLify(string s)
+            {
                 string[] strings = Arrayify(s);
                 string convertedString = "";
-                for (int y = 0; y < strings.Length; y++) {
-                    if (String.IsNullOrWhiteSpace(strings[y])) {
+                for (int y = 0; y < strings.Length; y++)
+                {
+                    if (String.IsNullOrWhiteSpace(strings[y]))
+                    {
                         strings[y] = "%20";
                     }
                     convertedString += strings[y];
@@ -161,9 +182,11 @@ namespace c_sharp_tutorial
                 return convertedString;
             }
 
-            string[] Arrayify(String S) {
+            string[] Arrayify(String S)
+            {
                 string[] strings = new string[S.Length];
-                for (int z = 0; z < S.Length; z++) {
+                for (int z = 0; z < S.Length; z++)
+                {
                     strings[z] = S[z].ToString();
                 }
                 return strings;
@@ -175,13 +198,15 @@ namespace c_sharp_tutorial
             // permutation of a palindrome.
 
             // This solves palindrome (not permutations of palindrome)
-            string IsPalindrome(String s) {
+            string IsPalindrome(String s)
+            {
                 char[] reverseString = new char[s.Length];
-                for (int a = 0; a < s.Length; a++) {
+                for (int a = 0; a < s.Length; a++)
+                {
                     reverseString[a] = s[s.Length - (a + 1)];
                 }
-                return (new string (reverseString) == s).ToString() 
-                                                                 + " (permutations: '" + new string(reverseString) + "', '" 
+                return (new string(reverseString) == s).ToString()
+                                                                 + " (permutations: '" + new string(reverseString) + "', '"
                                                                      + s + "', etc.)";
             }
 
@@ -197,7 +222,7 @@ namespace c_sharp_tutorial
             // String functions
             string sampString = "A bunch of random words.";
             Console.WriteLine("Index of bunch" + sampString.IndexOf("bunch"));
-			Console.WriteLine("2nd Word " + sampString.Substring(2, 6));
+            Console.WriteLine("2nd Word " + sampString.Substring(2, 6));
             sampString = sampString.Replace("words.", "characters.    ");
             sampString = sampString.Trim();
             Console.WriteLine("After a word replace and trim " + sampString);
@@ -224,23 +249,28 @@ namespace c_sharp_tutorial
             Console.WriteLine("Array Length" + randArray2.Length);
             Console.WriteLine("Item 0 " + randArray2[0]);
 
-            for (int b = 0; b < randArray2.Length; b++) {
+            for (int b = 0; b < randArray2.Length; b++)
+            {
                 Console.WriteLine("{0} : {1}", b, randArray2[b]);
             }
 
-            foreach(int n in randArray2) {
+            foreach (int n in randArray2)
+            {
                 Console.WriteLine(n);
             }
 
             int[,] multArray = new int[5, 3];
             int[,] multArray2 = { { 0, 1 }, { 2, 3 }, { 4, 5 } };
 
-            foreach(int nu in multArray2) {
+            foreach (int nu in multArray2)
+            {
                 Console.WriteLine(nu);
             }
 
-            for (int x = 0; x < multArray2.GetLength(0); x++) {
-                for (int u = 0; u < multArray2.GetLength(1); u++) {
+            for (int x = 0; x < multArray2.GetLength(0); x++)
+            {
+                for (int u = 0; u < multArray2.GetLength(1); u++)
+                {
                     Console.WriteLine("{0} | {1} : {2}", x, u, multArray2[x, u]);
                 }
             }
@@ -255,40 +285,68 @@ namespace c_sharp_tutorial
             numList.AddRange(randInts);
 
             System.Collections.Generic.List<int> numList2 = new System.Collections.Generic.List<int>(randArray);
-            System.Collections.Generic.List<int> numList3 = new System.Collections.Generic.List<int>(new int[] {1,2,3,4});
+            System.Collections.Generic.List<int> numList3 = new System.Collections.Generic.List<int>(new int[] { 1, 2, 3, 4 });
 
             numList.Insert(1, 10);
             numList.Remove(5);
             numList.RemoveAt(2);
 
-            for (int g = 0; g < numList.Count; g++) {
+            for (int g = 0; g < numList.Count; g++)
+            {
                 Console.WriteLine(numList[g]);
             }
 
             Console.WriteLine("4 is in index " + numList3.IndexOf(4));
             Console.WriteLine("5 is in List " + numList3.Contains(5));
 
-            System.Collections.Generic.List<string> strList = new System.Collections.Generic.List<string>(new string[] {"Tom", "Rando"});
+            System.Collections.Generic.List<string> strList = new System.Collections.Generic.List<string>(new string[] { "Tom", "Rando" });
 
             strList.Sort();
 
             // Exception Handling
-            try {
+            try
+            {
                 Console.Write("Divide 10 by ");
                 int input = int.Parse(Console.ReadLine());
-                Console.WriteLine("10 / {0} = {1}", input, (10/input));
-            } 
-            catch(DivideByZeroException ex) {
+                Console.WriteLine("10 / {0} = {1}", input, (10 / input));
+            }
+            catch (DivideByZeroException ex)
+            {
                 Console.WriteLine("Can't divide by zero");
                 Console.WriteLine(ex.GetType().Name);
                 Console.WriteLine(ex.Message);
-                throw new InvalidOperationException("Operation Failed", ex);
             }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.GetType().Name);
                 Console.WriteLine(ex.Message);
             }
 
+            // Objects/Classes
+            Animal spot = new Animal(15, 10, "Spot", "Woof");
+            Console.WriteLine("{0} says {1}", spot.name, spot.sound);
+            Console.WriteLine("Number of Animals " + Animal.getNumOfAnimals());
+            Console.WriteLine(spot.toString());
+            Console.WriteLine(spot.getSum(1.2, 2.7));
+
+            Animal grover = new Animal
+            {
+                name = "Grover",
+                height = 16,
+                weight = 18,
+                sound = "Grrr"
+            };
+
+            Dog fred = new Dog
+            {
+                name = "Fred",
+                height = 10,
+                weight = 11,
+                sound = "Eee",
+                favFood = "clementines"
+            };
+
+            Console.WriteLine(fred.toString());
         }
     }
 }
