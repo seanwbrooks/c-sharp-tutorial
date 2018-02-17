@@ -175,7 +175,7 @@ namespace c_sharp_tutorial
             // permutation of a palindrome.
 
             // This solves palindrome (not permutations of palindrome)
-            string isPalindrome(String s) {
+            string IsPalindrome(String s) {
                 char[] reverseString = new char[s.Length];
                 for (int a = 0; a < s.Length; a++) {
                     reverseString[a] = s[s.Length - (a + 1)];
@@ -185,8 +185,93 @@ namespace c_sharp_tutorial
                                                                      + s + "', etc.)";
             }
 
-            Console.WriteLine(isPalindrome("Hello World"));
-            Console.WriteLine(isPalindrome("racecar"));
+            Console.WriteLine(IsPalindrome("Hello World"));
+            Console.WriteLine(IsPalindrome("racecar"));
+
+            // Another solution
+            //String CanBePalindrome(String s) {
+
+            //}
+
+            // Back to C# Tutorial
+            // String functions
+            string sampString = "A bunch of random words.";
+            Console.WriteLine("Index of bunch" + sampString.IndexOf("bunch"));
+			Console.WriteLine("2nd Word " + sampString.Substring(2, 6));
+            sampString = sampString.Replace("words.", "characters.    ");
+            sampString = sampString.Trim();
+            Console.WriteLine("After a word replace and trim " + sampString);
+
+            string[] names = new string[3] { "Matt", "Angela", "Karen" };
+            Console.WriteLine("Name List " + String.Join(", ", names));
+
+            // Formats
+            string fmtStr = String.Format("{0:c} {1:00.00} {2:#} {3:0, 0}", 1.56, 15.567, .56, 1000);
+            Console.WriteLine(fmtStr);
+
+            // String Builders
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+            sb.Append("This is the first sentence. ");
+            sb.AppendFormat("My name is {0} and I live in {1}", "Sean", "Massachusetts");
+            sb.Replace("a", "z");
+            sb.Remove(5, 7);
+            Console.WriteLine(sb);
+
+            // Arrays
+            int[] randArray = new int[5];
+            int[] randArray2 = { 1, 2, 3, 4, 5 };
+            Console.WriteLine("Array Length" + randArray2.Length);
+            Console.WriteLine("Item 0 " + randArray2[0]);
+
+            for (int b = 0; b < randArray2.Length; b++) {
+                Console.WriteLine("{0} : {1}", b, randArray2[b]);
+            }
+
+            foreach(int n in randArray2) {
+                Console.WriteLine(n);
+            }
+
+            int[,] multArray = new int[5, 3];
+            int[,] multArray2 = { { 0, 1 }, { 2, 3 }, { 4, 5 } };
+
+            foreach(int nu in multArray2) {
+                Console.WriteLine(nu);
+            }
+
+            for (int x = 0; x < multArray2.GetLength(0); x++) {
+                for (int u = 0; u < multArray2.GetLength(1); u++) {
+                    Console.WriteLine("{0} | {1} : {2}", x, u, multArray2[x, u]);
+                }
+            }
+
+            // Lists
+            System.Collections.Generic.List<int> numList = new System.Collections.Generic.List<int>();
+            numList.Add(5);
+            numList.Add(15);
+            numList.Add(25);
+
+            int[] randInts = { 1, 2, 3, 4, 5 };
+            numList.AddRange(randInts);
+
+            System.Collections.Generic.List<int> numList2 = new System.Collections.Generic.List<int>(randArray);
+            System.Collections.Generic.List<int> numList3 = new System.Collections.Generic.List<int>(new int[] {1,2,3,4});
+
+            numList.Insert(1, 10);
+            numList.Remove(5);
+            numList.RemoveAt(2);
+
+            for (int g = 0; g < numList.Count; g++) {
+                Console.WriteLine(numList[g]);
+            }
+
+            Console.WriteLine("4 is in index " + numList3.IndexOf(4));
+            Console.WriteLine("5 is in List " + numList3.Contains(5));
+
+            System.Collections.Generic.List<string> strList = new System.Collections.Generic.List<string>(new string[] {"Tom", "Rando"});
+
+            strList.Sort();
+
         }
     }
 }
