@@ -347,6 +347,23 @@ namespace csharptutorial
             };
 
             Console.WriteLine(fred.toString());
+
+            // Build a function that takes a string and returns the first recurring char
+            string reoccurringChar(string s)
+            {
+                char[] chars = s.ToCharArray();
+                char[] checkedChars = new char[s.Length];
+                bool reoccurring = false;
+
+                for (int c = 0; c < chars.Length; c++)
+                {
+                    // Learn how to build hash
+                }
+
+                return reoccurring ? firstChar.ToString() : null;
+            }
+
+            Console.WriteLine(reoccurringChar("badcedc"));
         }
     }
 }
