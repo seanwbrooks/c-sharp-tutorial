@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 
 namespace csharptutorial
@@ -11,26 +12,6 @@ namespace csharptutorial
             Console.Write("What is your name ");
             string name = Console.ReadLine();
             Console.WriteLine("Hello " + name);
-
-            // Data types
-            bool canVote = true;
-            char grade = 'A';
-
-            // Integer with a max number of 2,147,483,647
-            int maxInt = int.MaxValue;
-
-            // Long with a max number of 9,223,372,036,854,775,807
-            long maxLong = long.MaxValue;
-
-            // Decimal has a maxium value of 79,228,162,514,264,337,593,543,950,335
-            // If you need something bigger look up BigInteger
-            decimal maxDec = decimal.MaxValue;
-
-            // A float is a 32 bit number with a maxValue of 3.402823E+38 with 7 decimals of precision
-            float maxFloat = float.MaxValue;
-
-            // A float is a 32 bit number with a maxValue of 1.797693134E+308 with 15 decimal precision
-            double maxDouble = double.MaxValue;
 
             Console.WriteLine("Max Int: " + maxInt);
 
@@ -236,7 +217,7 @@ namespace csharptutorial
             Console.WriteLine(fmtStr);
 
             // String Builders
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
             sb.Append("This is the first sentence. ");
             sb.AppendFormat("My name is {0} and I live in {1}", "Sean", "Massachusetts");
@@ -277,7 +258,7 @@ namespace csharptutorial
             }
 
             // Lists
-            System.Collections.Generic.List<int> numList = new System.Collections.Generic.List<int>();
+            List<int> numList = new List<int>();
             numList.Add(5);
             numList.Add(15);
             numList.Add(25);
@@ -285,8 +266,8 @@ namespace csharptutorial
             int[] randInts = { 1, 2, 3, 4, 5 };
             numList.AddRange(randInts);
 
-            System.Collections.Generic.List<int> numList2 = new System.Collections.Generic.List<int>(randArray);
-            System.Collections.Generic.List<int> numList3 = new System.Collections.Generic.List<int>(new int[] { 1, 2, 3, 4 });
+            List<int> numList2 = new List<int>(randArray);
+            List<int> numList3 = new List<int>(new int[] { 1, 2, 3, 4 });
 
             numList.Insert(1, 10);
             numList.Remove(5);
@@ -300,7 +281,7 @@ namespace csharptutorial
             Console.WriteLine("4 is in index " + numList3.IndexOf(4));
             Console.WriteLine("5 is in List " + numList3.Contains(5));
 
-            System.Collections.Generic.List<string> strList = new System.Collections.Generic.List<string>(new string[] { "Tom", "Rando" });
+            List<string> strList = new List<string>(new string[] { "Tom", "Rando" });
 
             strList.Sort();
 
