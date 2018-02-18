@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace csharptutorial
 {
@@ -352,15 +353,19 @@ namespace csharptutorial
             string reoccurringChar(string s)
             {
                 char[] chars = s.ToCharArray();
-                char[] checkedChars = new char[s.Length];
-                bool reoccurring = false;
+                List<char> checkedChars = new List<char>();
+                string recurringChar = null;
 
                 for (int c = 0; c < chars.Length; c++)
                 {
-                    // Learn how to build hash
+                    if(checkedChars.Contains(chars[c])) {
+                        recurringChar = chars[c].ToString();
+                        break;
+                    } else {
+                        checkedChars.Add(chars[c]);
+                    }
                 }
-
-                return reoccurring ? firstChar.ToString() : null;
+                return recurringChar;
             }
 
             Console.WriteLine(reoccurringChar("badcedc"));
