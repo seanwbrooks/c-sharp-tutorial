@@ -13,8 +13,6 @@ namespace csharptutorial
             string name = Console.ReadLine();
             Console.WriteLine("Hello " + name);
 
-            Console.WriteLine("Max Int: " + maxInt);
-
             // Shorthand declaration
             var anotherName = "Tom";
 
@@ -350,6 +348,17 @@ namespace csharptutorial
             }
 
             Console.WriteLine(reoccurringChar("badcedc"));
+
+            // Back to polymorphisms: abstract, interface, and operator
+            Shape rect = new Rectangle(5, 5);
+            Shape tri = new Triangle(5, 5);
+
+            Console.WriteLine("Rect Area " + rect.area());
+            Console.WriteLine("Tri Area " + tri.area());
+
+            Rectangle combRect = new Rectangle(5, 5) + new Rectangle(2, 3);
+            Console.WriteLine("combRect Area " + combRect.area());
+
         }
     }
 }
