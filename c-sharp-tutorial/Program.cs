@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace csharptutorial
 {
     class Program
     {
-        static void Main(string[] args)
+        protected internal static void Main(string[] args)
         {
             // Basic input/output
             Console.Write("What is your name ");
@@ -349,7 +351,7 @@ namespace csharptutorial
 
             Console.WriteLine(reoccurringChar("badcedc"));
 
-            // Back to polymorphisms: abstract, interface, and operator
+            // Back to polymorphisms: abstract, interface, and operator (See Shape.cs)
             Shape rect = new Rectangle(5, 5);
             Shape tri = new Triangle(5, 5);
 
@@ -359,6 +361,83 @@ namespace csharptutorial
             Rectangle combRect = new Rectangle(5, 5) + new Rectangle(2, 3);
             Console.WriteLine("combRect Area " + combRect.area());
 
+            // Calling our KeyValue class
+            KeyValue<string, string> superman = new KeyValue<string, string>("", "");
+            superman.key = "Superman";
+            superman.value = "Clark Kent";
+
+            KeyValue<string, int> samsungTV = new KeyValue<string, int>("", 0);
+            samsungTV.key = "a 50 in Samsung TV";
+            samsungTV.value = 12345;
+
+            superman.showData();
+            samsungTV.showData();
+
+            // Enums
+            Temperature micTemp = Temperature.Low;
+
+            switch(micTemp) {
+                case Temperature.Freeze:
+                    Console.WriteLine("Temp on Freezing");
+                    break;
+                case Temperature.Low:
+                    Console.WriteLine("Temp on Low");
+                    break;
+                case Temperature.Warm:
+                    Console.WriteLine("Temp on Warm");
+                    break;
+                case Temperature.Boil:
+                    Console.WriteLine("Temp on Boil");
+                    break;
+            }
+
+            // Struct
+            Customers Sean = new Customers();
+            Sean.createCust("Sean", 34.5, 1);
+            Sean.showCust();
+
+            // Stream writers/readers
+            string[] custs = new string[] { "Dakota", "Sean", "Karen" };
+            string file = "test.txt";
+
+            //using (StreamWriter writer = new StreamWriter(file))
+            //{
+            //    foreach (string cust in custs)
+            //    {
+            //        writer.WriteLine(cust);
+            //    }
+            //}
+
+            string custName = "";
+            using (StreamReader sr = new StreamReader("test.xlsx"))
+            {
+                while ((custName = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(custName);
+                }
+            }
+        }
+
+        // The following can be outside of the Program.cs file, but needs to be within
+        // the namespace csharptutorial
+        // Generics/Generic class
+        // We don't know the data type for Key and Value
+        class KeyValue<TKey, TValue>
+        {
+            // Define getters and setters
+            public TKey key { get; set; }
+            public TValue value { get; set; }
+
+            public KeyValue(TKey k, TValue v)
+            {
+                key = k;
+                value = v;
+            }
+
+            public void showData()
+            {
+                Console.WriteLine("{0} is {1}", this.key, this.value);
+            }
         }
     }
 }

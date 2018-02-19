@@ -1,6 +1,35 @@
 ﻿using System;
 namespace csharptutorial
 {
+
+    // Enums (list of particular values)
+    public enum Temperature {
+        Freeze,
+        Low,
+        Warm,
+        Boil
+    }
+
+    // Structs
+    struct Customers
+    {
+        private string name;
+        private double balance;
+        private int id;
+
+        public void createCust(string n, double b, int i)
+        {
+            name = n;
+            balance = b;
+            id = i;
+        }
+
+        public void showCust() 
+        {
+            Console.WriteLine("{0} has a balance of {1} and id of {2}", name, balance, id);
+        }
+    }
+
     public class Animal
     {
         public double height { get; set; }
